@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src = "FileSaver.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+var global_array = [];
+ var st,en;
+        function update(o) {
+
+           var t = o.value, s = getSelectionStart(o), e = getSelectionEnd(o);
+           // document.write("start: " + s + " End: " + e);
+          this.st=s;
+          this.en=e;
+           // document.test.selectedtext.value += s;
+           // document.test.selectedtext.value += " " +e;
+            return s,e;
+       }
+
+       function getSelectionStart(o) {
+           if (o.createTextRange) {
+               var r = document.selection.createRange().duplicate()
+               rse = r.text.length;
+               r.moveEnd('character', o.value.length)
+               if (r.text == '')
+                   return o.value.length
+               return o.value.lastIndexOf(r.text)
+           }
+           else
+               return o.selectionStart
+       }
+
+       function getSelectionEnd(o) {
+           if (o.createTextRange) {
+               var r = document.selection.createRang;
+               e().duplicate()
+               r.moveStart('character', -o.value.length)
+               return r.text.length
+           }
+           else
+               return o.selectionEnd
+       }
+
+        function insert1(){
+           document.getElementById('startp1').setAttribute('value', st);
+           document.getElementById('endp1').setAttribute('value', en);
+           document.getElementById('lenp1').setAttribute('value', (en-st+1));
+
+        }
+        function insert2(){
+           document.getElementById('startp2').setAttribute('value', st);
+           document.getElementById('endp2').setAttribute('value', en);
+           document.getElementById('lenp2').setAttribute('value', (en-st+1));
+
+        }
+        function insert3(){
+           document.getElementById('startp3').setAttribute('value', st);
+           document.getElementById('endp3').setAttribute('value', en);
+           document.getElementById('lenp3').setAttribute('value', (en-st+1));
+
+        }
+        function insert4(){
+           document.getElementById('startp4').setAttribute('value', st);
+           document.getElementById('endp4').setAttribute('value', en);
+           document.getElementById('lenp4').setAttribute('value', (en-st+1));
+
+        }
+        function insert5(){
+           document.getElementById('startp5').setAttribute('value', st);
+           document.getElementById('endp5').setAttribute('value', en);
+           document.getElementById('lenp5').setAttribute('value', (en-st+1));
+
+        }
+        function insert6(){
+           document.getElementById('startp6').setAttribute('value', st);
+           document.getElementById('endp6').setAttribute('value', en);
+           document.getElementById('lenp6').setAttribute('value', (en-st+1));
+
+        }
+        function insert7(){
+           document.getElementById('startp7').setAttribute('value', st);
+           document.getElementById('endp7').setAttribute('value', en);
+           document.getElementById('lenp7').setAttribute('value', (en-st+1));
+
+        }
+
+
+function saveCSV () {
+  var blob = new Blob([global_array], {type: "text/plain;charset=utf-8"});
+  saveAs(blob, "testfile1.txt");
+}
+
+var p1,p2,p3,p4,p5,p6,p7;
+var s1,s2,s3,s4,s5,s6,s7;
+
+function tablecontent(){
+p1= document.getElementById("name1").value;
+//document.test.selectedtext.value += " " +p1;
+s1= document.getElementById("startp1").value;
+//document.test.selectedtext.value += " " +s1;
+p2= document.getElementById("name2").value;
+//document.test.selectedtext.value += " " +p2;
+s2= document.getElementById("startp2").value;
+//document.test.selectedtext.value += " " +s2;
+p3= document.getElementById("name3").value;
+//document.test.selectedtext.value += " " +p3;
+s3= document.getElementById("startp3").value;
+//document.test.selectedtext.value += " " +s3;
+p4= document.getElementById("name4").value;
+//document.test.selectedtext.value += " " +p4;
+s4= document.getElementById("startp4").value;
+//document.test.selectedtext.value += " " +s4;
+p5= document.getElementById("name5").value;
+//document.test.selectedtext.value += " " +p5;
+s5= document.getElementById("startp5").value;
+//document.test.selectedtext.value += " " +s5;
+p6= document.getElementById("name6").value;
+//document.test.selectedtext.value += " " +p6;
+s6= document.getElementById("startp6").value;
+//document.test.selectedtext.value += " " +s6;
+p7= document.getElementById("name7").value;
+//document.test.selectedtext.value += " " +p7;
+s7= document.getElementById("startp7").value;
+//document.test.selectedtext.value += " " +s7;
+global_array = global_array.concat([[[p1,s1],[p2,s2],[p3,s3],[p4,s4],[p5,s5],[p6,s6],[p7,s7],['$','$']]]);
+console.log(global_array)
+for(i=0;i<ticket.length;i++)
+for(j=0;j<ticket[0].length;j++)
+document.test.selectedtext.value += " " +ticket[i][j];
+
+
+// const fs = require('fs')
+//
+// // Data which will write in a file.
+// let data = "Learning how to write in a file."
+//
+// // Write data in 'Output.txt' .
+// fs.writeFile('Output.txt', data, (err) => {
+//
+//     // In case of a error throw err.
+//     if (err) throw err;
+// })
+}
+
+
+
+
+
+//         const toCsv = function (table) {
+//      // Query all rows
+//      const rows = table.querySelectorAll('tr');
+//
+//      return [].slice
+//          .call(rows)
+//          .map(function (row) {
+//              // Query all cells
+//              const cells = row.querySelectorAll('th,td');
+//              return [].slice
+//                  .call(cells)
+//                  .map(function (cell) {
+//                      return cell.textContent;
+//                  })
+//                  .join(',');
+//          })
+//          .join('\n');
+//  };
+//
+//  const download = function (text, fileName) {
+//     const link = document.createElement('a');
+//     link.setAttribute('href', `data:text/csv;charset=utf-8,${encodeURIComponent(text)}`);
+//     link.setAttribute('download', fileName);
+//
+//     link.style.display = 'none';
+//     document.body.appendChild(link);
+//
+//     link.click();
+//
+//     document.body.removeChild(link);
+// };
+//
+// function csv(){
+// const table = document.getElementById('exportMe');
+// const exportBtn = document.getElementById('export');
+//
+//
+//     // Export to csv
+//     const csv = toCsv(table);
+//
+//     // Download it
+//     download(csv, 'download.csv');
+// }
+
+        // function getSelectedText() { // Function to get selected string
+        //
+        //
+        //           var selectedText = '';
+        //
+        //           if (window.getSelection) {
+        //            selectedText = window.getSelection();
+        //          }
+        //            document.test.selectedtext.value = selectedText;
+        //         }
+
+  </script>
+  </head>
+  <body>
+
+    <div>
+      Enter Cinema Name :
+      <br />
+      <input type="text" id="cinema" />
+      </div>
+      Enter Ticket details:
+      <div>
+
+      <textarea id ="ticket" rows=10 cols="100" onselect="update(this);"></textarea>
+
+      <!-- <input type="text" name="ticket" id="ticket" /> -->
+      <br>
+      <br>
+            </div>
+      Highlight Text and click on  Insert Button:
+      <br>
+      <br>
+      <!-- <input type="button"
+              value="Get Selection"
+              onmousedown="getSelectedText()"-->
+  <form name ="test">
+    <textarea name="selectedtext" rows="20" cols="100"></textarea>
+    </form>
+
+<form name="try">
+
+    <table id="exportMe" class="table" border='2'>
+      <thead>
+        <tr>
+          <td>
+            Parameter
+            </td>
+            <td>Start <br />
+               position</td>
+        <td>End<br /> Position</td>
+        <td>Max<br /> Chars</td>
+        <td>
+
+        </td>
+          </tr>
+
+      </thead>
+      <tbody id="params">
+
+      <tr>
+        <td>
+        <input type="text" id="name1" name="name1"  />
+        </td>
+        <td>
+        <input type="text" id="startp1" name="startp1" readonly />
+        </td>
+        <td>
+        <input type="text" id="endp1" name="endp1" readonly />
+        </td>
+        <td>
+        <input type="text" id="lenp1" name="lenp1" readonly />
+        </td>
+         <td>
+             <input type="button" value="Insert" id="in" onclick="insert1()" />
+         </td>
+        </tr>
+        <tr>
+          <td>
+          <input type="text" id="name2" name="name1"  />
+          </td>
+          <td>
+          <input type="text" id="startp2" name="startp2" readonly />
+          </td>
+          <td>
+          <input type="text" id="endp2" name="endp2" readonly />
+          </td>
+          <td>
+          <input type="text" id="lenp2" name="lenp2" readonly />
+          </td>
+           <td>
+               <input type="button" value="Insert" id="in" onclick="insert2()" />
+           </td>
+          </tr>
+          <tr>
+            <td>
+            <input type="text" id="name3" name="name1"  />
+            </td>
+            <td>
+            <input type="text" id="startp3" name="startp3" readonly />
+            </td>
+            <td>
+            <input type="text" id="endp3" name="endp3" readonly />
+            </td>
+            <td>
+            <input type="text" id="lenp3" name="lenp3" readonly />
+            </td>
+             <td>
+                 <input type="button" value="Insert" id="in" onclick="insert3()" />
+             </td>
+            </tr>
+            <tr>
+              <td>
+              <input type="text" id="name4" name="name1"  />
+              </td>
+              <td>
+              <input type="text" id="startp4" name="startp4" readonly />
+              </td>
+              <td>
+              <input type="text" id="endp4" name="endp4" readonly />
+              </td>
+              <td>
+              <input type="text" id="lenp4" name="lenp4" readonly />
+              </td>
+               <td>
+                   <input type="button" value="Insert" id="in" onclick="insert4()" />
+               </td>
+              </tr>
+              <tr>
+                <td>
+                <input type="text" id="name5" name="name1"  />
+                </td>
+                <td>
+                <input type="text" id="startp5" name="startp5" readonly />
+                </td>
+                <td>
+                <input type="text" id="endp5" name="endp5" readonly />
+                </td>
+                <td>
+                <input type="text" id="lenp5" name="lenp5" readonly />
+                </td>
+                 <td>
+                     <input type="button" value="Insert" id="in" onclick="insert5()" />
+                 </td>
+                </tr>
+                <tr>
+                  <td>
+                  <input type="text" id="name6" name="name1"  />
+                  </td>
+                  <td>
+                  <input type="text" id="startp6" name="startp5" readonly />
+                  </td>
+                  <td>
+                  <input type="text" id="endp6" name="endp5" readonly />
+                  </td>
+                  <td>
+                  <input type="text" id="lenp6" name="lenp5" readonly />
+                  </td>
+                   <td>
+                       <input type="button" value="Insert" id="in" onclick="insert6()" />
+                   </td>
+                  </tr>
+                  <tr>
+                    <td>
+                    <input type="text" id="name7" name="name1"  />
+                    </td>
+                    <td>
+                    <input type="text" id="startp7" name="startp5" readonly />
+                    </td>
+                    <td>
+                    <input type="text" id="endp7" name="endp5" readonly />
+                    </td>
+                    <td>
+                    <input type="text" id="lenp7" name="lenp5" readonly />
+                    </td>
+                     <td>
+                         <input type="button" value="Insert" id="in" onclick="insert7()" />
+                     </td>
+                    </tr>
+        </tbody>
+
+    </table>
+    <button id="export" onclick="saveCSV()" >Export</button>
+    <p><input type="button" id="bt" value="Show Table Data" onclick="tablecontent()" /></p>
+   <p id="info"></p>
+
+</form>
+  </body>
+</html>
